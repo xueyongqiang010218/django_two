@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    <table border="1px">
+    {% for i in g_all %}
+        {% for s in s_all %}
+            {% if s.s_id == i %}
+                <tr>
+                <td>{{ i.g_name }}</td>
+                <td>{{ s.s_name }}</td>
+                <td>{{ s.age }}</td>
+                <td>{{ s.sex }}</td>
+                <td>{{ s.address }}</td>
+                <td>{{ s.phone }}</td>
+                <td><a href="{% url 'delete' s.id %}">删除</a></td>
+                <td><a href="{% url 'update' s.id %}">修改</a></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+<td><input type="text" name="g_name"></td>
+<td><input type="text" name="s_name"></td>
+<td><input type="text" name="age"></td>
+<td><input type="text" name="sex"></td>
+<td><input type="text" name="address"></td>
+<td><input type="text" name="phone"></td>
+</table>
+<button>提交</button>
+</form>
+</body>
+</html>
